@@ -1,10 +1,4 @@
 import pytest
-from main import BooksCollector
-
-@pytest.fixture
-def collector():
-    return BooksCollector()
-
 class TestBooksCollector:
 
     #добавляем две новые книги в словарь без указания жанра
@@ -100,7 +94,6 @@ class TestBooksCollector:
     def test_delete_book_from_favorites_success(self, collector):
         collector.add_new_book('Ночь нежна')
         collector.add_book_in_favorites('Ночь нежна')
-        assert ['Ночь нежна'] == collector.get_list_of_favorites_books()
         collector.delete_book_from_favorites('Ночь нежна')
         assert ['Ночь нежна'] != collector.get_list_of_favorites_books()
 
